@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <script>
+
+    
+    function validatePin(data){
+        var a =data;
+        var cond = false
+        
+        if(a.length!=0){
+            cond= true
+        }
+        if(a.length==4||a.length==6) {
+            if(Number(a)){
+                cond= true
+            }
+            else {
+                cond= false
+            }
+            
+            
+        }
+       else{
+        cond= false
+       }
+        
+        return cond;
+
+        
+    }
+    console.log(validatePin("1234aa"))
+    console.log(validatePin("12345"))
+    console.log(validatePin("a1234"))
+    console.log(validatePin(""))
+    </script>
+</body>
+</html>

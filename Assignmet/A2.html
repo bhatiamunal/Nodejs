@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var A=[3,3,9,9,9,5]
+        var B=[1,3,9,5,8,44,44]
+        var c=[3,9,5]
+        var d=[1,3,9,5,8,44]
+        var e=[1,3]
+        var f=[1,33]
+        var g=[1,3,10]
+        var h=[10,8,8]
+        function removeDuplicates(arr) { 
+            return arr.filter((item,index) => arr.indexOf(item) === index); 
+        } 
+        
+        function d1(parentArray, subsetArray)  {
+            subsetArray = removeDuplicates(subsetArray)
+            return subsetArray.every((el) => {
+                return parentArray.includes(el) 
+            })
+        }
+        
+        console.log(d1(B,A));
+        console.log(d1(d,c));
+        console.log(d1(e,f));
+        console.log(d1(g,h));
+        
+    </script>
+</body>
+</html>

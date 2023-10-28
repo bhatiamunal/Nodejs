@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+ <style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=button] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=button]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+
+
+    </style>
+</head>
+<body>
+  
+    <div class="container">
+        <form action="">
+            <p id="demo" style="color:red"></p>
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">Text Box 1 </label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="m1" id="m1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+              <label for="fname">Text Box 2 </label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="m2" id="m2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+              <label for="fname">Text Box 3 </label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="m3" id="m3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+              <label for="fname">Text Box 4 </label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="m4" id="m4">
+            </div>
+        </div>
+        <div class="row" style="padding: 1%;">
+        <input type="button" value="Submit" onclick="mk()">
+        </div>
+        </form>
+    </div>
+    
+
+<!-- <div class="m2">
+    <p id="demo" ></p>
+    <div class="m1">
+        <label for="fname">Text Box 1 </label>
+      
+    </div>
+    
+    <div class="m1">
+        <label for="fname">Text Box 2</label>
+        <input type="password" name="m2" id="m2"> 
+    </div>
+    
+    <div class="m1">
+        <label for="fname">Text Box 3</label>
+        <input type="text" name="m3" id="m3">
+    </div>
+    <div class="m1">
+        <label for="fname">Text Box 4</label>
+        <input type="text" name="m4" id="m4">
+    </div>
+    <input type="button" value="Submit" onclick="mk()">
+</div> </form> -->
+
+
+
+
+
+
+
+        
+
+     
+    <script>
+        function mk(){
+            var m1 = document.getElementById("m1").value;
+            var m2 = document.getElementById("m2").value;
+            var m3 = document.getElementById("m3").value.toLowerCase();
+            var m4 = document.getElementById("m4").value;
+            var errMsg=  document.getElementById("demo") ;
+           
+            if(m1.length==0){
+                errMsg.innerHTML="Please Fill Text Box 1"
+            }
+            else if(m2.length==0){
+                errMsg.innerHTML="Please Fill Text Box 2"
+            }
+            else if(m3.length==0){
+                errMsg.innerHTML="Please Fill Text Box 3"
+            }
+            else if(m4.length==0){
+                errMsg.innerHTML="Please Fill Text Box 4"
+            }
+            else if (!isNaN(m1) ){
+                errMsg.innerHTML="Please check  Text Box 1 is string"
+            }
+            else if(m2.length<4  ){
+                errMsg.innerHTML="Text Box 2:  More than 4  characters "
+            }
+
+            else if(m2.length>8){
+                errMsg.innerHTML=" Text Box 2: less than  8 characters "
+            }
+            else if (m2.includes(" "))
+            {
+                errMsg.innerHTML="Text Box 2: characters with no space"
+            }
+            else if (m4.length<3 ){
+                errMsg.innerHTML=" Text Box 4 :More than 3  characters" ; 
+            }
+            else if( m4.length>12){
+                errMsg.innerHTML=" Text Box 4 : less than  12 characters." ; 
+            }
+            else if (m3.includes("script")){
+                errMsg.innerHTML=" Text Box  3: Script is not used in ipnut" ; 
+
+            }
+            else if (m4.length>=3 && m4.length<=12){
+                errMsg.innerHTML="";
+                for (let i = 0; i < m4.length; ++i) { 
+                    let ch = m4.charCodeAt(i); 
+                    // console.log(ch); 
+                    if ( 
+                        !(ch >= 65 && ch <= 90) && 
+                        !(ch >= 97 && ch <= 122) &&  
+                        !(ch >= 48 && ch <= 57) 
+                    ) { 
+                        errMsg.innerHTML="Text Box 4: Doesnot conatin any special Charater " ; 
+                    } 
+                }
+            }
+            
+
+        }
+    </script>
+</body>
+</html>
